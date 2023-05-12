@@ -3,9 +3,6 @@ CRAWLY by Alexander Abraham a.k.a. "Angel Dollface".
 Licensed under the MIT license.
 */
 
-/// Importing Rust's map API.
-use std::collections::HashMap;
-
 /// Importing the "get_index"
 /// method from the "Coutils"
 /// crate.
@@ -15,6 +12,9 @@ use coutils::get_index;
 /// method from the "Coutils"
 /// crate.
 use coutils::clean_split;
+
+/// Importing Rust's map API.
+use std::collections::HashMap;
 
 /// A struct to represent 
 /// words as entites.

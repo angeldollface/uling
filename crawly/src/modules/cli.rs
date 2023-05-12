@@ -7,14 +7,6 @@ Licensed under the MIT license.
 /// entity from my library, Cleasy.
 use cleasy::App;
 
-/// Importing the struct
-/// to represent word entities.
-use super::search::Word;
-
-/// Importing the function
-/// to do the actual crawling.
-use super::search::find_word;
-
 /// Importing the method to
 /// check whether a file exists.
 use coutils::file_is;
@@ -23,6 +15,10 @@ use coutils::file_is;
 /// read string data from a 
 /// file.
 use coutils::read_file;
+
+/// Importing the struct
+/// to represent word entities.
+use super::search::Word;
 
 /// Importing the function 
 /// to create text files.
@@ -36,6 +32,11 @@ use coutils::clean_split;
 /// to write to text files.
 use coutils::write_to_file;
 
+/// Importing the function
+/// to do the actual crawling.
+use super::search::find_word;
+
+/// A function to process the args passed and run a search.
 pub fn process_args(file: &String, word: &String) -> () {
     if file_is(file) {
         let contents: String = read_file(&file);

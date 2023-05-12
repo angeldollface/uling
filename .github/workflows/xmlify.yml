@@ -16,10 +16,10 @@ jobs:
       - name: "Serialize a file. (short version)"
         uses: actions-rs/cargo@v1
         with:
-          command: run --bin xmlify
+          command: run -p xmlify
           args: -- -i ./test/test.txt
       - name: "Serialize a file. (long version)"
         uses: actions-rs/cargo@v1
         with:
-          command: run --bin xmlify
+          command: run -p xmlify
           args: -- --inf ./test/test.txt
