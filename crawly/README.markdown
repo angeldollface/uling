@@ -25,8 +25,6 @@ This should make the `crawly` binary available from the command line. The comman
 
 ## USAGE :hammer:
 
-### COMMAND LINE AFTER INSTALLATION
-
 Once you have correctly installed ***Crawly***, you should have the `crawly` binary available from the command line.
 You can use this text-crawler in the following ways:
 
