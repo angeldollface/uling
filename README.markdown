@@ -24,7 +24,7 @@ To install all binaries in this Cargo workspace, make sure you have the followin
 To install all binaries, run this command from a terminal session:
 
 ```bash
-cargo install --git https://github.com/angeldollface/uling --bins
+cargo install --git https://github.com/angeldollface/uling xmlify crawly
 ```
 
 ## NOTE :scroll:
