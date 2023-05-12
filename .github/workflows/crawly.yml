@@ -16,10 +16,10 @@ jobs:
       - name: "Run a search. (short version)"
         uses: actions-rs/cargo@v1
         with:
-          command: run -p crawly
-          args: -- -i ./test/test.txt -w "word"
+          command: run 
+          args: -p crawly -- -i ./test/test.txt -w "word"
       - name: "Run a search. (long version)"
         uses: actions-rs/cargo@v1
         with:
-          command: run -p crawly
-          args: -- --inf ./test/test.txt --wrd "word"
+          command: run
+          args: -p crawly -- --inf ./test/test.txt --wrd "word"
