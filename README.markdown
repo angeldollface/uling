@@ -13,6 +13,17 @@ Since I needed some tools for some linguistic research this semester, I thought 
 - [XMLIFY](xmlify/README.markdown): Serialize speech transcripts as XML.
 - [CRAWLY](crawly/README.markdown): Search for specific words and surrounding text in a dataset of text (files).
 
+## INSTALL THE WHOLE SUITE OF BINARIES :inbox_tray:
+
+To install all binaries in this Cargo workspace, make sure you have the following tools installed and available from the command line:
+
+- [Rust](https://rust-lang.org)
+- [Git](https://git-scm.org)
+- [Cargo](https://crates.io) (Usually comes with Rust.)
+
+To install all binaries, run this command from a terminal session:
+
+
 ## NOTE :scroll:
 
 - *ULING :mag_right: :scroll:* by Alexander Abraham :black_heart: a.k.a. *"Angel Dollface" :dolls: :ribbon:*
