@@ -25,8 +25,6 @@ This should make the `xmlify` binary available from the command line. The comman
 
 ## USAGE :hammer:
 
-### COMMAND LINE AFTER INSTALLATION
-
 Once you have correctly installed ***XMLIFY***, you should have the `xmlify` binary available from the command line.
 You can use this tool in the following ways:
 
