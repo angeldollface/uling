@@ -16,10 +16,20 @@ jobs:
       - name: "Run a search. (short version)"
         uses: actions-rs/cargo@v1
         with:
-          command: run -p crawly
+          command: run --bin crawly
           args: -- -i ./test/test.txt -w "word"
       - name: "Run a search. (long version)"
         uses: actions-rs/cargo@v1
         with:
-          command: run -p crawly
+          command: run --bin crawly
           args: -- --inf ./test/test.txt --wrd "word"
+      - name: "Serialize a file. (short version)"
+        uses: actions-rs/cargo@v1
+        with:
+          command: run --bin xmlify
+          args: -- -i ./test/test.txt
+      - name: "Serialize a file. (long version)"
+        uses: actions-rs/cargo@v1
+        with:
+          command: run --bin xmlify
+          args: -- --inf ./test/test.txt

@@ -1,8 +1,6 @@
 # ULING :mag_right: :scroll:
 
-![GitHub CI](https://github.com/angeldollface/uling/actions/workflows/crawly.yml/badge.svg)
-
-![GitHub CI](https://github.com/angeldollface/uling/actions/workflows/xmlify.yml/badge.svg)
+![GitHub CI](https://github.com/angeldollface/uling/actions/workflows/rust.yml/badge.svg)
 
 ***A suite of tools for linguistic research. :mag_right: :scroll:***
 
