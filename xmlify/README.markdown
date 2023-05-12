@@ -18,7 +18,7 @@ You should have the following tools installed and available from the command lin
 To install ***XMLIFY*** from source, run this command from a terminal:
 
 ```bash
-cargo install --git https://github.com/angeldollface/uling -p xmlify
+cargo install --git https://github.com/angeldollface/uling xmlify
 ```
 
 This should make the `xmlify` binary available from the command line. The command above will also compile and install the latest cutting-edge version of ***XMLIFY***.
