@@ -1,0 +1,25 @@
+on: [push]
+name: XMLIFY CI
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - name: "Build the executable."
+        uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: --release
+      - name: "Serialize a text file. (short version)"
+        uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: -- -i ./test/test.txt
+      - name: "Serialize a text file. (long version)"
+        uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: -- --inf ./test/test.txt

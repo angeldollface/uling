@@ -1,0 +1,27 @@
+[package]
+name = "xmlify"
+version = "1.0.0"
+edition = "2021"
+license = "MIT"
+authors = ["Angel Dollface"]
+description= "Serialize speech transcripts as XML."
+homepage = "https://github.com/angeldollface/uling/xmlify"
+repository = "https://github.com/angeldollface/uling/xmlify"
+documentation = "https://github.com/angeldollface/uling/xmlify"
+readme = "README.markdown"
+keywords = [
+  "linguistics",
+  "transcript-serialization"
+]
+categories = [
+  "linguistics",
+  "transcript-serialization"
+]
+
+[dependencies]
+coutils = { git = "https://github.com/angeldollface/coutils", version="1.0.0" }
+cleasy = { git = "https://github.com/angeldollface/cleasy", version = "1.3.0" }
+
+[[bin]]
+name = "xmlify"
+path = "src/main.rs"

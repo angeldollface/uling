@@ -1,0 +1,17 @@
+[workspace]
+members = [
+    "xmlify",
+    "crawly",
+]
+
+[profile.release.xmlify]
+strip = true
+opt-level = "s"
+lto = true
+codegen-units = 1
+
+[profile.release.crawly]
+strip = true
+opt-level = "s"
+lto = true
+codegen-units = 1
