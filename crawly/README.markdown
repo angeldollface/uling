@@ -1,6 +1,6 @@
 # CRAWLY :scroll: :mag_right:
 
-![GitHub CI](https://github.com/angeldollface/uling/actions/workflows/rust.yml/badge.svg)
+![GitHub CI](https://github.com/angeldollface/uling/actions/workflows/crawly.yml/badge.svg)
 
 ***Search for specific words and surrounding text in a dataset of text (files). :scroll: :mag_right:***
 

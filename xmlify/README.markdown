@@ -1,6 +1,6 @@
 # XMLIFY :scroll: :ribbon:
 
-![GitHub CI](https://github.com/angeldollface/uling/actions/workflows/rust.yml/badge.svg)
+![GitHub CI](https://github.com/angeldollface/uling/actions/workflows/xmlify.yml/badge.svg)
 
 ***Serialize speech transcripts as XML. :scroll: :ribbon:***
 

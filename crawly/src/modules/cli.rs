@@ -17,24 +17,24 @@ use super::search::find_word;
 
 /// Importing the method to
 /// check whether a file exists.
-use coutils::coutils::file_is;
+use coutils::file_is;
 
 /// Importing the method to
 /// read string data from a 
 /// file.
-use coutils::coutils::read_file;
+use coutils::read_file;
 
 /// Importing the function 
 /// to create text files.
-use coutils::coutils::create_file;
+use coutils::create_file;
 
 /// Importing the function to
 /// split strings.
-use coutils::coutils::clean_split;
+use coutils::clean_split;
 
 /// Importing the function 
 /// to write to text files.
-use coutils::coutils::write_to_file;
+use coutils::write_to_file;
 
 pub fn process_args(file: &String, word: &String) -> () {
     if file_is(file) {

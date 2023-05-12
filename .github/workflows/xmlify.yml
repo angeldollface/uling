@@ -1,5 +1,5 @@
 on: [push]
-name: Crawly CI
+name: XMLIFY CI
 jobs:
   build_and_test:
     runs-on: ubuntu-latest
@@ -8,21 +8,11 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
-      - name: "Build the executable."
+      - name: "Build the executable for XMLIFY."
         uses: actions-rs/cargo@v1
         with:
           command: build
-          args: --release
-      - name: "Run a search. (short version)"
-        uses: actions-rs/cargo@v1
-        with:
-          command: run --bin crawly
-          args: -- -i ./test/test.txt -w "word"
-      - name: "Run a search. (long version)"
-        uses: actions-rs/cargo@v1
-        with:
-          command: run --bin crawly
-          args: -- --inf ./test/test.txt --wrd "word"
+          args: -p xmlify --release
       - name: "Serialize a file. (short version)"
         uses: actions-rs/cargo@v1
         with:

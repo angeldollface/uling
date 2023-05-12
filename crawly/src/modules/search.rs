@@ -9,12 +9,12 @@ use std::collections::HashMap;
 /// Importing the "get_index"
 /// method from the "Coutils"
 /// crate.
-use coutils::coutils::get_index;
+use coutils::get_index;
 
 /// Importing the "clean_split"
 /// method from the "Coutils"
 /// crate.
-use coutils::coutils::clean_split;
+use coutils::clean_split;
 
 /// A struct to represent 
 /// words as entites.

@@ -11,33 +11,33 @@ use cleasy::App;
 /// standard trait.
 use std::fmt::Debug;
 
+/// Importing the "file_is"
+/// from the "Coutils" crate.
+use coutils::file_is;
+
+/// Importing the "read_file"
+/// from the "Coutils" crate.
+use coutils::read_file;
+
+/// Importing the "get_index"
+/// from the "Coutils" crate.
+use coutils::get_index;
+
 /// Importing the "PartialEq"
 /// trait.
 use std::cmp::PartialEq;
 
-/// Importing the "file_is"
-/// from the "Coutils" crate.
-use coutils::coutils::file_is;
-
-/// Importing the "read_file"
-/// from the "Coutils" crate.
-use coutils::coutils::read_file;
-
-/// Importing the "get_index"
-/// from the "Coutils" crate.
-use coutils::coutils::get_index;
-
 /// Importing the "clean_split"
 /// from the "Coutils" crate.
-use coutils::coutils::clean_split;
+use coutils::clean_split;
 
 /// Importing the "create_file"
 /// from the "Coutils" crate.
-use coutils::coutils::create_file;
+use coutils::create_file;
 
 /// Importing the "write_to_file"
 /// from the "Coutils" crate.
-use coutils::coutils::write_to_file;
+use coutils::write_to_file;
 
 /// A data type to
 /// represent an utterance.
