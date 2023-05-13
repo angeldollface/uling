@@ -44,7 +44,7 @@ use coutils::write_to_file;
 pub struct Utterance {
     pub speaker: String,
     pub speech: String,
-    pub line_number: usize
+    pub line_number: usize,
 }
 
 
@@ -58,7 +58,7 @@ impl Utterance{
     pub fn new(
         speaker: &String,
         speech: &String,
-        line_number: &usize
+        line_number: &usize,
     ) -> Utterance {
         return Utterance {
             speaker: speaker.to_owned(),
@@ -71,7 +71,7 @@ impl Utterance{
     /// entity.
     pub fn to_xml(&self) -> String {
         return format!(
-            "<Utterance speaker=\"{}\" id=\"{}\">{}</Utterance>",
+            "<Utterance speaker=\"{}\" id=\"{}\">\n\t<speech>{}</speech>\n</Utterance>",
             &self.speaker,
             &self.line_number,
             &self.speech
