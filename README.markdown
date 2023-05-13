@@ -68,7 +68,7 @@ tately --sld speech.xml --ano annotation.xml
 ```bash
 crawly -i speech_annotated.xml -w "noun"
 # OR
-tately --inf speech_annotated.xml --wrd "noun"
+crawly --inf speech_annotated.xml --wrd "noun"
 ```
 
 ## NOTE :scroll:
