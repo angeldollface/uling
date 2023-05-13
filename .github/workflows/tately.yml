@@ -1,0 +1,25 @@
+on: [push]
+name: Tately CI
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - name: "Build the executable for Tately."
+        uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: -p tately --release
+      - name: "Annotate a file. (short version)"
+        uses: actions-rs/cargo@v1
+        with:
+          command: run 
+          args: -p tately -- -s ./test/test.xml -a ./test/annotations.xml
+      - name: "Annotate a file. (long version)"
+        uses: actions-rs/cargo@v1
+        with:
+          command: run 
+          args: -p tately -- --sld ./test/test.xml --ano ./test/annotations.xml

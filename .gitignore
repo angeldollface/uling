@@ -4,3 +4,4 @@
 Cargo.lock
 /target
 /test/*.xml
+!/test/annotations.xml
