@@ -23,3 +23,5 @@ jobs:
         with:
           command: run 
           args: -p xmlify -- --inf ./test/test.txt
+      - name: "Confirm success"
+        run: "ls test"
