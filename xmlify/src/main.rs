@@ -71,7 +71,7 @@ impl Utterance{
     /// entity.
     pub fn to_xml(&self) -> String {
         return format!(
-            "<Utterance speaker=\"{}\" id=\"{}\">\n\t<speech>{}</speech>\n</Utterance>",
+            "<Utterance speaker=\"{}\" id=\"{}\">{}</Utterance>",
             &self.speaker,
             &self.line_number,
             &self.speech
