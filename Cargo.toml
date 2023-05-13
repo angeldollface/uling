@@ -2,9 +2,16 @@
 members = [
     "xmlify",
     "crawly",
+    "tately"
 ]
 
 [profile.release.xmlify]
+strip = true
+opt-level = "s"
+lto = true
+codegen-units = 1
+
+[profile.release.tately]
 strip = true
 opt-level = "s"
 lto = true
