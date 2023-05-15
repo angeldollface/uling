@@ -61,19 +61,30 @@ impl Word {
     /// representation of the "Word" entity.
     pub fn to_xml(&self) -> String {
         let mut line_info_vec: Vec<String> = Vec::new();
-        for (k,v) in self.line_info.clone().into_iter() {
-            let xml_string: String = format!("<Line number=\"{}\">{}</Line>", k, v);
-            line_info_vec.push(xml_string);
+        let mut result: String = String::from("");
+        if self.line_info.is_empty() {
+            result: String = format!(
+                "<Word entity=\"{}\">\n<File>{}</File>\n<Count>{:?}</Count>\n</Word>",
+                &self.word,
+                &self.file_name,
+                &self.count
+            );
         }
-        let line_info_xml: String = line_info_vec.join("\n");
-        let xml_string: String = format!(
-            "<Word entity=\"{}\">\n<File>{}</File>\n<Count>{:?}</Count>\n{}\n</Word>",
-            &self.word,
-            &self.file_name,
-            &self.count,
-            line_info_xml
-        );
-        return xml_string;        
+        else {
+            for (k,v) in self.line_info.clone().into_iter() {
+                let xml_string: String = format!("<Line number=\"{}\">{}</Line>", k, v);
+                line_info_vec.push(xml_string);
+            }
+            let line_info_xml: String = line_info_vec.join("\n");
+            result: String = format!(
+                "<Word entity=\"{}\">\n<File>{}</File>\n<Count>{:?}</Count>\n{}\n</Word>",
+                &self.word,
+                &self.file_name,
+                &self.count,
+                line_info_xml
+            );
+        }
+        return result;        
     }
 }
 
