@@ -108,7 +108,7 @@ pub fn cli() {
         let file: String = crawly.get_arg_data(&"inf");
         let word: String = crawly.get_arg_data(&"wrd");
         let default_mode: String = String::from("xml");
-        process_args(&file, &word, default_mode);
+        process_args(&file, &word, &default_mode);
     }         
     else {
         println!(

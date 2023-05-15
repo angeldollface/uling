@@ -63,7 +63,7 @@ impl Word {
         let mut line_info_vec: Vec<String> = Vec::new();
         let mut result: String = String::from("");
         if self.line_info.is_empty() {
-            result: String = format!(
+            result = format!(
                 "<Word entity=\"{}\">\n<File>{}</File>\n<Count>{:?}</Count>\n</Word>",
                 &self.word,
                 &self.file_name,
@@ -76,7 +76,7 @@ impl Word {
                 line_info_vec.push(xml_string);
             }
             let line_info_xml: String = line_info_vec.join("\n");
-            result: String = format!(
+            result = format!(
                 "<Word entity=\"{}\">\n<File>{}</File>\n<Count>{:?}</Count>\n{}\n</Word>",
                 &self.word,
                 &self.file_name,

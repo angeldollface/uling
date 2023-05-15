@@ -100,8 +100,6 @@ pub fn serialize(text: &String) -> Vec<Utterance> {
     );
     for line in &lines {
         if !line.contains(":"){}
-        else if line == String::from("\n"){}
-        else if round_regex.
         else {
             let split_string: Vec<String> = clean_split(
                 &line,
