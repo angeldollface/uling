@@ -37,6 +37,11 @@ Assuming your trasncribed speech file looks something like this and has the name
 ```Text
 Speaker 1: My name is John.
 Speaker 2: My name is Jane.
+Speaker 1: What do you do, Jane?
+Speaker 2: I'm a support worker.
+Speaker 2: You?
+Speaker 1: I'm an Astronaut.
+Speaker 2: Wow!
 ```
 
 A sample workflow might look something like this:
@@ -44,31 +49,67 @@ A sample workflow might look something like this:
 - We serialize the speech file using `xmlify`:
 
 ```bash
-xmlify -i speech.txt
+xmlify -i ./speech.txt
 # OR
-xmlify --inf speech.txt
+xmlify --inf ./speech.txt
 ```
 
-- We annotate the serialized speech using `tately` (The configuration file for the annotation can be found below the commands.):
-
-```bash
-tately -s speech.xml -a annotation.xml
-# OR
-tately --sld speech.xml --ano annotation.xml
-```
+- This will yield an XML file by the name of `speech.xml` that looks like this:
 
 ```XML
-<!--annotation.xml-->
+<Utterance speaker="Speaker 1" id="1"> My name is John.</Utterance>
+<Utterance speaker="Speaker 2" id="2"> My name is Jane.</Utterance>
+<Utterance speaker="Speaker 1" id="3"> What do you do, Jane?</Utterance>
+<Utterance speaker="Speaker 2" id="4"> I'm a support worker.</Utterance>
+<Utterance speaker="Speaker 2" id="5"> You?</Utterance>
+<Utterance speaker="Speaker 1" id="6"> I'm an Astronaut.</Utterance>
+<Utterance speaker="Speaker 2" id="7"> Wow!</Utterance>
+```
+
+- We annotate the serialized speech using `tately`:
+
+```bash
+tately -s ./speech.xml -a ./annotation.xml
+# OR
+tately --sld ./speech.xml --ano ./annotation.xml
+```
+
+- Assuming we're looking for "is" and "name", this would be the configuration file, `annotation.xml`:
+
+```XML
 <Annotation word_type="noun">name</Annotation>
 <Annotation word_type="verb">is</Annotation>
+```
+
+- This will yield the annotated, serialized speech in XML format that looks like this in a file called `speech_annotated.xml`:
+
+```XML
+<Utterance speaker="Speaker 1" id="1">My <noun>name</noun> <verb>is</verb> John.</Utterance>
+<Utterance speaker="Speaker 2" id="2">My <noun>name</noun> <verb>is</verb> Jane.</Utterance>
+<Utterance speaker="Speaker 1" id="3">What do you do, Jane?</Utterance>
+<Utterance speaker="Speaker 2" id="4">I'm a support worker.</Utterance>
+<Utterance speaker="Speaker 2" id="5">You?</Utterance>
+<Utterance speaker="Speaker 1" id="6">I'm an Astronaut.</Utterance>
+<Utterance speaker="Speaker 2" id="7">Wow!</Utterance>
 ```
 
 - We then search for occurences of the word type `noun` in the annotated speech using `crawly`:
 
 ```bash
-crawly -i speech_annotated.xml -w "noun"
+crawly -i ./speech_annotated.xml -w "noun"
 # OR
-crawly --inf speech_annotated.xml --wrd "noun"
+crawly --inf ./speech_annotated.xml --wrd "noun"
+```
+
+- That command will yield a file called `speech_annotated_noun.xml` with the following contents:
+
+```XML
+<Word entity="noun">
+<File>./speech_annotated.xml</File>
+<Count>2</Count>
+<Line number="1"><Utterance speaker="Speaker 2" id="2">My <noun>name</noun> <verb>is</verb> Jane.</Utterance></Line>
+<Line number="0"><Utterance speaker="Speaker 1" id="1">My <noun>name</noun> <verb>is</verb> John.</Utterance></Line>
+</Word>
 ```
 
 ## NOTE :scroll:

@@ -1,0 +1,7 @@
+<Utterance speaker="Speaker 1" id="1">My <noun>name</noun> <verb>is</verb> John.</Utterance>
+<Utterance speaker="Speaker 2" id="2">My <noun>name</noun> <verb>is</verb> Jane.</Utterance>
+<Utterance speaker="Speaker 1" id="3">What do you do, Jane?</Utterance>
+<Utterance speaker="Speaker 2" id="4">I'm a support worker.</Utterance>
+<Utterance speaker="Speaker 2" id="5">You?</Utterance>
+<Utterance speaker="Speaker 1" id="6">I'm an Astronaut.</Utterance>
+<Utterance speaker="Speaker 2" id="7">Wow!</Utterance>

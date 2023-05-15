@@ -1,14 +1,66 @@
+/*
+TATELY by Alexander Abraham a.k.a. "Angel Dollface".
+Licensed under the MIT license.
+*/
+
+/// Imports the "App"
+/// entity from the 
+/// "Cleasy" crate to help
+/// build a CLI.
 use cleasy::App;
+
+/// We import the "file_is"
+/// method from the "Coutils"
+/// crate.
 use coutils::file_is;
+
+/// We import the "read_file"
+/// method from the "Coutils"
+/// crate.
 use coutils::read_file;
+
+/// We import the "clean_split"
+/// method from the "Coutils"
+/// crate.
 use coutils::clean_split;
+
+/// We import the "create_file"
+/// method from the "Coutils"
+/// crate.
 use coutils::create_file;
+
+/// We import the "write_to_file"
+/// method from the "Coutils"
+/// crate.
 use coutils::write_to_file;
+
+/// We import the "Utterance"
+/// entity from the "utterances"
+/// module.
 use super::utterances::Utterance;
+
+/// We import the "Annotations"
+/// entity from the "annotations"
+/// module.
 use super::annotations::Annotation;
+
+/// We import the "AnnotatedUtterance"
+/// entity from the "annotate"
+/// module.
 use super::annotate::AnnotatedUtterance;
+
+/// We import the method to annotate utterances
+/// from the "annotate" module.
 use super::annotate::annotate_utterances;
+
+/// We import the method to deserialize
+/// utterances in XML format from the 
+/// "utterances" module.
 use super::utterances::deserialize_utterances;
+
+/// We import the method to deserialize
+/// annotations in XML format from the 
+/// "annotations" module.
 use super::annotations::deserialize_annotations;
 
 /// A function to process passed command-line arguments.

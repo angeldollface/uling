@@ -40,8 +40,8 @@ use super::search::find_word;
 pub fn process_args(file: &String, word: &String) -> () {
     if file_is(file) {
         let contents: String = read_file(&file);
-        let name_base: &String = &clean_split(&file, &String::from(".txt"))[0];
-        let new_file_name: String = format!("{}.xml", &name_base);
+        let name_base: &String = &clean_split(&file, &String::from(".xml"))[0];
+        let new_file_name: String = format!("{}_{}.xml", &name_base, word);
         let finding: Word = find_word(&contents, &word, &file);
         create_file(&new_file_name);
         write_to_file(&new_file_name, &finding.to_xml());

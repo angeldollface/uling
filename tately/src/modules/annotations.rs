@@ -1,3 +1,8 @@
+/*
+TATELY by Alexander Abraham a.k.a. "Angel Dollface".
+Licensed under the MIT license.
+*/
+
 /// Importing an extra 
 /// standard trait.
 use std::fmt::Debug;
@@ -28,7 +33,11 @@ pub struct Annotation {
     pub content: String
 }
 
+/// Implements methods for the entity above.
 impl Annotation {
+
+    /// Returns a string representation of
+    /// the "Annotation" entity.
     pub fn to_string(&self) -> String {
         return format!(
             "Type: {}\nMarker: {}",

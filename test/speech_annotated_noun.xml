@@ -1,0 +1,6 @@
+<Word entity="noun">
+<File>./test/speech_annotated.xml</File>
+<Count>2</Count>
+<Line number="0"><Utterance speaker="Speaker 1" id="1">My <noun>name</noun> <verb>is</verb> John.</Utterance></Line>
+<Line number="1"><Utterance speaker="Speaker 2" id="2">My <noun>name</noun> <verb>is</verb> Jane.</Utterance></Line>
+</Word>

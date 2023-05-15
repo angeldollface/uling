@@ -17,9 +17,9 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: run 
-          args: -p crawly -- -i ./test/test.txt -w "word"
+          args: -p crawly -- -i ./test/speech_annotated.xml -w "noun"
       - name: "Run a search. (long version)"
         uses: actions-rs/cargo@v1
         with:
           command: run
-          args: -p crawly -- --inf ./test/test.txt --wrd "word"
+          args: -p crawly -- --inf ./test/./test/speech_annotated.xml --wrd "noun"

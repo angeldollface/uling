@@ -1,8 +1,30 @@
+/*
+TATELY by Alexander Abraham a.k.a. "Angel Dollface".
+Licensed under the MIT license.
+*/
+
+/// We import the "get_index"
+/// method from the "Coutils"
+/// crate.
 use coutils::get_index;
+
+/// We import the "clean_split"
+/// method from the "Coutils"
+/// crate.
 use coutils::clean_split;
+
+/// We import the "Utterance"
+/// entity from the "utterances"
+/// module.
 use super::utterances::Utterance;
+
+/// We import the "Annotations"
+/// entity from the "annotations"
+/// module.
 use super::annotations::Annotation;
 
+/// We define an entity to hold info
+/// about annotated utterances.
 pub struct AnnotatedUtterance {
     pub speaker: String,
     pub id: usize,
@@ -10,7 +32,13 @@ pub struct AnnotatedUtterance {
     pub annotations: Vec<AnnotatedWord>
 }
 
+/// Implementing methods
+/// for the "AnnotatedUtterance"
+/// entity.
 impl AnnotatedUtterance {
+
+    /// Creates a new instance
+    /// of "AnnotatedUtterance".
     pub fn new(
         speaker: &String,
         id: &usize,
@@ -24,6 +52,9 @@ impl AnnotatedUtterance {
             annotations: annotations.to_vec()
         }
     }
+
+    /// Creates a string representation
+    /// of "AnnotatedUtterance".
     pub fn to_string(&self) -> String {
         let mut string_vec: Vec<String> = Vec::new();
         for annotation in &self.annotations {
@@ -37,6 +68,9 @@ impl AnnotatedUtterance {
             string_vec.join("\n")
         );
     }
+
+    /// Creates an XML representation
+    /// of "AnnotatedUtterance".
     pub fn to_xml(&self) -> String {
         let mut annotated_speech: String = (&self.speech).to_owned();
         for an in &self.annotations {
@@ -52,6 +86,10 @@ impl AnnotatedUtterance {
     }
 }
 
+/// We define an entity
+/// for words to search.
+/// The "AnnotatedUtterance"
+/// entity depends on this.
 #[derive(Clone)]
 pub struct AnnotatedWord {
     pub start_pos: usize,
@@ -60,7 +98,13 @@ pub struct AnnotatedWord {
     pub word_type: String
 }
 
+/// Implementing methods
+/// for the "AnnotatedWord"
+/// entity.
 impl AnnotatedWord {
+
+    /// Creates a new instance
+    /// of "AnnotatedWord".
     pub fn new(
         start_pos: &usize,
         end_pos: &usize,
@@ -74,6 +118,9 @@ impl AnnotatedWord {
             word_type: word_type.to_owned()
         }
     }
+
+    /// Creates a string representation
+    /// of "AnnotatedWord".
     pub fn to_string(&self) -> String {
         return format!(
             "\tStart: {:?}\n\tEnd: {:?}\n\tContent: {}\n\tType: {}\n",
@@ -83,6 +130,9 @@ impl AnnotatedWord {
             &self.word_type
         );
     }
+
+     /// Creates an XML representation
+    /// of "AnnotatedWord".
     pub fn to_xml(&self) -> String {
         return format!(
             "<{}>{}</{}>",
@@ -93,6 +143,8 @@ impl AnnotatedWord {
     }
 }
 
+/// Finds the start- and end position of a word in a long string.
+/// We returns this as a vector of unsigned integers.
 pub fn find_phrase_cols(phrase: &String, subject: &String) -> Vec<usize> {
     let mut result: Vec<usize> = Vec::new();
     let chars: Vec<String> = clean_split(phrase, &String::from(""));
@@ -112,6 +164,9 @@ pub fn find_phrase_cols(phrase: &String, subject: &String) -> Vec<usize> {
     return result;
 }
 
+/// Annotates a single utterance.
+/// Gathers info in the "AnnotatedUtterance"
+/// entity and returns said entity.
 pub fn annotate_utterance(
     utterance: &Utterance,
     annotations: &Vec<Annotation>
@@ -156,6 +211,9 @@ pub fn annotate_utterance(
     return result;
 }
 
+/// Annotates a whole vector of utterances.
+/// Returns a vector of the "AnnotatedUtterance"
+/// entity.
 pub fn annotate_utterances(
     utterances: &Vec<Utterance>,
     annotations: &Vec<Annotation>

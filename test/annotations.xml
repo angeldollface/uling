@@ -1,6 +1,2 @@
-<Annotation word_type="Name">Jane</Annotation>
-<Annotation word_type="DM1">I'm thinking</Annotation>
-<Annotation word_type="DM1">Don't worry</Annotation>
-<Annotation word_type="Con1">If you</Annotation>
-<Annotation word_type="Name">Peter</Annotation>
-<Annotation word_type="Name">Jasper</Annotation>
+<Annotation word_type="noun">name</Annotation>
+<Annotation word_type="verb">is</Annotation>

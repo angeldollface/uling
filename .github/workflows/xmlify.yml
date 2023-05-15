@@ -17,11 +17,11 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: run 
-          args: -p xmlify -- -i ./test/test.txt
+          args: -p xmlify -- -i ./test/speech.txt
       - name: "Serialize a file. (long version)"
         uses: actions-rs/cargo@v1
         with:
           command: run 
-          args: -p xmlify -- --inf ./test/test.txt
+          args: -p xmlify -- --inf ./test/speech.txt
       - name: "Confirm success"
         run: "ls test"

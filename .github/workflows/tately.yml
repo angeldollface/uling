@@ -17,9 +17,9 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: run 
-          args: -p tately -- -s ./test/test.xml -a ./test/annotations.xml
+          args: -p tately -- -s ./test/speech.xml -a ./test/annotations.xml
       - name: "Annotate a file. (long version)"
         uses: actions-rs/cargo@v1
         with:
           command: run 
-          args: -p tately -- --sld ./test/test.xml --ano ./test/annotations.xml
+          args: -p tately -- --sld ./test/speech.xml --ano ./test/annotations.xml

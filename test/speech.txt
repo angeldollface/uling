@@ -1,0 +1,7 @@
+Speaker 1: My name is John.
+Speaker 2: My name is Jane.
+Speaker 1: What do you do, Jane?
+Speaker 2: I'm a support worker.
+Speaker 2: You?
+Speaker 1: I'm an Astronaut.
+Speaker 2: Wow!
