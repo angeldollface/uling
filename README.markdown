@@ -30,6 +30,11 @@ To install all binaries, run this command from a terminal session:
 cargo install --git https://github.com/angeldollface/uling xmlify crawly tately
 ```
 
+## NOTE FOR BEGINNERS :crab:
+
+If you have never worked with command line tools before, I found this article that explains everything.
+All tools in this suite are command line tools. Link to the article: [READ](https://www.freecodecamp.org/news/how-to-use-the-cli-beginner-guide/)
+
 ## SAMPLE WORKFLOW :test_tube:
 
 Assuming your transcribed speech file looks something like this and has the name `speech.txt`:
