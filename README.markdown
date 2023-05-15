@@ -32,7 +32,7 @@ cargo install --git https://github.com/angeldollface/uling xmlify crawly tately
 
 ## SAMPLE WORKFLOW :test_tube:
 
-Assuming your trasncribed speech file looks something like this and has the name `speech.txt`:
+Assuming your transcribed speech file looks something like this and has the name `speech.txt`:
 
 ```Text
 Speaker 1: My name is John.
