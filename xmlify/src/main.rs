@@ -7,9 +7,10 @@ Licensed under the MIT license.
 /// entity from my library, Cleasy.
 use cleasy::App;
 
-/// Importing an extra 
-/// standard trait.
-use std::fmt::Debug;
+/// We import the "CleasyError"
+/// struct for handling results
+/// and errors.
+use cleasy::CleasyError;
 
 /// Importing the "file_is"
 /// from the "Coutils" crate.
@@ -152,23 +153,30 @@ pub fn cli() -> () {
     if xmlify.version_is() == true {
         println!(
             "{}", 
-            xmlify.version()
+            xmlify.version_info()
         );
     }
     else if xmlify.help_is() == true {
         println!(
             "{}", 
-            xmlify.help()
+            xmlify.help_info()
         );
     }
     else if xmlify.arg_was_used(&"inf") {
-        let file: String = xmlify.get_arg_data(&"inf");
-        process_args(&file);
+        let file: Result<String, CleasyError> = xmlify.get_arg_data(&"inf");
+        match file {
+            Ok(x) => {
+                process_args(&x);
+            },
+            Err(e) => {
+                println!("{}", e);
+            }
+        }
     }      
     else {
         println!(
             "{}", 
-            xmlify.help()
+            xmlify.help_info()
         );
     }
 }

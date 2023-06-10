@@ -9,6 +9,11 @@ Licensed under the MIT license.
 /// build a CLI.
 use cleasy::App;
 
+/// We import the "CleasyError"
+/// struct for handling results
+/// and errors.
+use cleasy::CleasyError;
+
 /// We import the "file_is"
 /// method from the "Coutils"
 /// crate.
@@ -120,28 +125,42 @@ pub fn cli() -> () {
     if tately.version_is() == true {
         println!(
             "{}", 
-            tately.version()
+            tately.version_info()
         );
     }
     else if tately.help_is() == true {
         println!(
             "{}", 
-            tately.help()
+            tately.help_info()
         );
     }
     else if tately.arg_was_used(&"sld") && 
         tately.arg_was_used(&"ano") {
-        let serialized_speech_file: String = tately.get_arg_data(&"sld");
-        let annotation_file: String = tately.get_arg_data(&"ano");
-        process_args(
-            &serialized_speech_file,
-            &annotation_file
-        );
+        let serialized_speech_file: Result<String, CleasyError> = tately.get_arg_data(&"sld");
+        match serialized_speech_file {
+            Ok(speech_file_path) => {
+                let annotation_file: Result<String, CleasyError> = tately.get_arg_data(&"ano");
+                match annotation_file {
+                    Ok(anno_file) => {
+                        process_args(
+                            &speech_file_path,
+                            &anno_file
+                        );
+                    },
+                    Err(y) => {
+                        println!("{}", y);
+                    }
+                }
+            },
+            Err(e) => {
+                println!("{}", e);
+            }
+        }
     }      
     else {
         println!(
             "{}", 
-            tately.help()
+            tately.help_info()
         );
     }
 }

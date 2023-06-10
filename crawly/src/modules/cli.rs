@@ -7,6 +7,11 @@ Licensed under the MIT license.
 /// entity from my library, Cleasy.
 use cleasy::App;
 
+/// We import the "CleasyError"
+/// struct for handling results
+/// and errors.
+use cleasy::CleasyError;
+
 /// Importing the method to
 /// check whether a file exists.
 use coutils::file_is;
@@ -86,34 +91,69 @@ pub fn cli() {
     if crawly.version_is() == true {
         println!(
             "{}", 
-            crawly.version()
+            crawly.version_info()
         );
     }
     else if crawly.help_is() == true {
         println!(
             "{}", 
-            crawly.help()
+            crawly.help_info()
         );
     }
     else if crawly.arg_was_used(&"inf") &&  
         crawly.arg_was_used(&"wrd") &&
         crawly.arg_was_used(&"mod") {
-        let file: String = crawly.get_arg_data(&"inf");
-        let word: String = crawly.get_arg_data(&"wrd");
-        let mode: String = crawly.get_arg_data(&"mod");
-        process_args(&file, &word, &mode);
+        let file: Result<String, CleasyError> = crawly.get_arg_data(&"inf");
+        match file {
+            Ok(file_path) => {
+                let word: Result<String, CleasyError> = crawly.get_arg_data(&"wrd");
+                match word {
+                    Ok(word_ok) => {
+                        let mode: Result<String, CleasyError> = crawly.get_arg_data(&"mod");
+                        match mode {
+                            Ok(mode_ok) => {
+                                process_args(&file_path, &word_ok, &mode_ok);
+                            },
+                            Err(mode_error) => {
+                                println!("{}", mode_error);
+                            }
+                        }
+                    },
+                    Err(word_error) => {
+                        println!("{}", word_error);
+                    }
+                }
+            },
+            Err(file_error) => {
+                println!("{}", file_error);
+            }
+        }
     }
     else if crawly.arg_was_used(&"inf") &&  
         crawly.arg_was_used(&"wrd") {
-        let file: String = crawly.get_arg_data(&"inf");
-        let word: String = crawly.get_arg_data(&"wrd");
-        let default_mode: String = String::from("xml");
-        process_args(&file, &word, &default_mode);
+        let file: Result<String, CleasyError> = crawly.get_arg_data(&"inf");
+        match file {
+            Ok(file_path) => {
+                let word: Result<String, CleasyError> = crawly.get_arg_data(&"wrd");
+                match word {
+                    Ok(word_ok) => {
+                        let default_mode: String = String::from("xml");
+                        process_args(&file_path, &word_ok, &default_mode);
+                    },
+                    Err(word_error) => {
+                        println!("{}", word_error);
+                    }
+                }
+            },
+            Err(file_error) => {
+                println!("{}", file_error);
+            }
+        }
     }         
     else {
         println!(
             "{}", 
-            crawly.help()
+            crawly.help_info()
         );
     }
 }
