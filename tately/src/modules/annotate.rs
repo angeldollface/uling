@@ -69,8 +69,11 @@ impl AnnotatedUtterance {
     /// of "AnnotatedUtterance".
     pub fn to_xml(&self) -> String {
         let mut annotated_speech: String = (&self.speech).to_owned();
-        for an in &self.annotations {
-            annotated_speech = annotated_speech.replace(&an.phrase, &an.to_xml());
+        for extracted_annotation in &self.annotations {
+            annotated_speech = annotated_speech.replace(
+                &extracted_annotation.phrase, 
+                &extracted_annotation.to_xml()
+            );
         }
         let code: String = format!(
             "<Utterance speaker=\"{}\" id=\"{}\">{}</Utterance>",
