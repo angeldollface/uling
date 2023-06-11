@@ -3,11 +3,6 @@ TATELY by Alexander Abraham a.k.a. "Angel Dollface".
 Licensed under the MIT license.
 */
 
-/// We import the "get_index"
-/// method from the "Coutils"
-/// crate.
-use coutils::get_index;
-
 /// We import the "clean_split"
 /// method from the "Coutils"
 /// crate.
@@ -25,6 +20,7 @@ use super::annotations::Annotation;
 
 /// We define an entity to hold info
 /// about annotated utterances.
+#[derive(Clone)]
 pub struct AnnotatedUtterance {
     pub speaker: String,
     pub id: usize,
@@ -92,8 +88,6 @@ impl AnnotatedUtterance {
 /// entity depends on this.
 #[derive(Clone)]
 pub struct AnnotatedWord {
-    pub start_pos: usize,
-    pub end_pos: usize,
     pub phrase: String,
     pub word_type: String
 }
@@ -106,14 +100,10 @@ impl AnnotatedWord {
     /// Creates a new instance
     /// of "AnnotatedWord".
     pub fn new(
-        start_pos: &usize,
-        end_pos: &usize,
         phrase: &String,
         word_type: &String
     ) -> AnnotatedWord {
         return AnnotatedWord {
-            start_pos: start_pos.to_owned(),
-            end_pos: end_pos.to_owned(),
             phrase: phrase.to_owned(),
             word_type: word_type.to_owned()
         }
@@ -123,9 +113,7 @@ impl AnnotatedWord {
     /// of "AnnotatedWord".
     pub fn to_string(&self) -> String {
         return format!(
-            "\tStart: {:?}\n\tEnd: {:?}\n\tContent: {}\n\tType: {}\n",
-            &self.start_pos,
-            &self.end_pos,
+            "\tContent: {}\n\tType: {}\n",
             &self.phrase,
             &self.word_type
         );
@@ -141,27 +129,6 @@ impl AnnotatedWord {
             &self.word_type
         );
     }
-}
-
-/// Finds the start- and end position of a word in a long string.
-/// We returns this as a vector of unsigned integers.
-pub fn find_phrase_cols(phrase: &String, subject: &String) -> Vec<usize> {
-    let mut result: Vec<usize> = Vec::new();
-    let chars: Vec<String> = clean_split(phrase, &String::from(""));
-    let mut count: usize = 0;
-    let mut im_chars: Vec<String> = Vec::new();
-    for character in &chars {
-        count = count + 1;
-        im_chars.push(character.to_string());
-        let joined_string: String = im_chars.join("");
-        if joined_string.contains(subject){
-            im_chars = Vec::new();
-            result.push(count-subject.len());
-            result.push(count);
-        }
-        else {}
-    }
-    return result;
 }
 
 /// Annotates a single utterance.
@@ -183,17 +150,7 @@ pub fn annotate_utterance(
             let joined_string: String = im_chars.join("");
             if joined_string.contains(&annotation.content) {
                 im_chars = Vec::new();
-                let start_pos: usize = find_phrase_cols(
-                    &speech,
-                    &annotation.content
-                )[0];
-                let end_pos: usize = find_phrase_cols(
-                    &speech,
-                    &annotation.content
-                )[1];
                 let annotated_word: AnnotatedWord = AnnotatedWord::new(
-                    &start_pos,
-                    &end_pos,
                     &annotation.content,
                     &annotation.word_type
                 );
